@@ -1,5 +1,6 @@
 # -*- coding=utf-8 -*-
 import copy
+import sys
 import time
 from collections import OrderedDict
 from time import sleep
@@ -23,7 +24,7 @@ class GoLogin:
         :return:
         """
         self.session.httpClint.send(self.session.urls["loginInitCdn1"])
-        uamtkStaticUrl = self.session.urls["uamtk-static"]
+        uamtkStaticUrl = self.session.urls["uamtk-static"] 
         uamtkStaticData = {"appid": "otn"}
         return self.session.httpClint.send(uamtkStaticUrl, uamtkStaticData)
 
@@ -97,8 +98,9 @@ class GoLogin:
                 if "result_code" in uamauthclientResult and uamauthclientResult["result_code"] == 0:
                     print(u"欢迎 {} 登录".format(uamauthclientResult["username"]))
                     return True
-                else:
-                    return False
+                if "result_code" in uamauthclientResult and uamauthclientResult["result_code"] == 2:
+                    print("tk不对 请检查代码")
+                    sys.exit()
             else:
                 self.session.httpClint.send(uamauthclientUrl, data)
                 url = self.session.urls["getUserInfo"]
@@ -117,7 +119,6 @@ class GoLogin:
         login_num = 0
         while True:
             if loginConf(self.session):
-
                 result = getPassCodeNewOrderAndLogin1(session=self.session, imgType="login")
                 if not result:
                     continue
@@ -134,3 +135,4 @@ class GoLogin:
                 loginAysnSuggest(self.session, username=user, password=passwd)
                 login_num += 1
                 break
+

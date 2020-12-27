@@ -275,6 +275,7 @@ urls = {
         "req_type": "post",
         "Referer": "https://kyfw.12306.cn/otn/leftTicket/init",
         "Host": "kyfw.12306.cn",
+        "Cookie": "JSESSIONID=B7C5C71CE0D26B3393FD62D2CC3C6273; _jc_save_fromStation=%u676D%u5DDE%2CHZH; _jc_save_toStation=%u5546%u4E18%2CSQF; _jc_save_wfdc_flag=dc; BIGipServerotn=1274020362.64545.0000; RAIL_EXPIRATION=1608974698285; RAIL_DEVICEID=gtJfNuBFUBPOakMf1Ujs_h7pUWCjoJik-SsmL78AOHgmfFki0edSZmxdwyuEi4Hpj94MAAu-JKtQNIZA8fSh_kwlHBRt7mAcG9lO5NXcJIfo05u8gr3_mwCbhwUFBXOeTl6GuJpTke-5_s-LU1mtZWMbIGXJbAtN; BIGipServerpool_passport=149160458.50215.0000; route=c5c62a339e7744272a54643b3be5bf64",   # 增加 20201227
         "re_try": 10,
         "re_time": 0.01,
         "s_time": 0.1,

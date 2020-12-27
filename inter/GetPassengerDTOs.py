@@ -74,7 +74,7 @@ class getPassengerDTOs:
         oldPassengerStr = []
         tickers = []
         set_type = ""
-        if wrapcache.get("user_info"):  # 如果缓存中有联系人方式，则读取缓存中的联系人
+        if 1==2:  # 如果缓存中有联系人方式，则读取缓存中的联系人
             user_info = wrapcache.get("user_info")
             print(u"使用缓存中查找的联系人信息")
         else:

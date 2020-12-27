@@ -46,15 +46,15 @@
         - 配置[配置](TickerConfig.py)文件的时候，需注意空格和遵循python语法格式
       - 启动前请先筛选cdn，这点很`重要`
         ```
-        python3 run.py c
+        python run.py c
         ```
       - 启动服务
         ```
-        python3 run.py r
+        python run.py r
         ```
       - 如果你不知道如何操作，下面的命令可能会帮助你
         ```
-        python3 run.py -h
+        python run.py -h
 
         ——————————————————————————
         sage: run.py [-h] operate

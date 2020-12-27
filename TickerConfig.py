@@ -5,23 +5,26 @@
 # 如果这个时候捡漏捡到的话，也是可以付款成功的，也就是说，捡漏+候补，可以最大程度提升抢票成功率
 
 # 刷票模式：1=刷票 2=候补+刷票
-TICKET_TYPE = 1
+TICKET_TYPE = 2
 
 # 出发日期(list) "2018-01-06", "2018-01-07"
 STATION_DATES = [
-    "2020-01-18"
+    "2021-01-01"
 ]
+# 预售放票时间, 如果是捡漏模式，可以忽略此操作
+OPEN_TIME = "09:30:00"
+
 
 # 填入需要购买的车次(list)，"G1353"
 # 修改车次填入规则，注：(以前设置的车次逻辑不变)，如果车次填入为空，那么就是当日乘车所有车次都纳入筛选返回
 # 不填车次是整个list为空才算，如果不是为空，依然会判断车次的，这种是错误的写法 [""], 正确的写法 []
-STATION_TRAINS = []
+STATION_TRAINS = ["G2908"]
 
 # 出发城市，比如深圳北，就填深圳就搜得到
-FROM_STATION = "广州南"
+FROM_STATION = "深圳北"
 
 # 到达城市 比如深圳北，就填深圳就搜得到
-TO_STATION = "隆回"
+TO_STATION = "贺州"
 
 # 座位(list) 多个座位ex:
 # "商务座",
@@ -42,11 +45,14 @@ IS_MORE_TICKET = True
 # 乘车人(list) 多个乘车人ex:
 # "张三",
 # "李四"
-TICKET_PEOPLES = []
+TICKET_PEOPLES = ["刘海平"]
 
 # 12306登录账号
-USER = ""
-PWD = ""
+# USER = "WANGXUJIE324"
+# PWD = "wxj19920324"
+USER = "lhpmain"
+PWD = "s123321"
+# tk = ""
 
 # 加入小黑屋时间默认为5分钟，此功能为了防止僵尸票导致一直下单不成功错过正常的票
 TICKET_BLACK_LIST_TIME = 5
@@ -59,12 +65,9 @@ IS_AUTO_CODE = True
 AUTO_CODE_TYPE = 3
 
 # 此处设置云打码服务器地址，如果有自建的服务器，可以自行更改
-HOST = "120.77.154.140:8000"
+HOST = "142.47.91.170:8088"
 REQ_URL = "/verify/base64/"
 HTTP_TYPE = "http"
-# HOST="12306.yinaoxiong.cn" #备用服务器稳定性较差
-# REQ_URL="/verify/base64/"
-# HTTP_TYPE="https"
 
 #  邮箱配置，如果抢票成功，将通过邮件配置通知给您
 #  列举163
@@ -80,7 +83,7 @@ HTTP_TYPE = "http"
 #  password: "授权码"
 #  host: "smtp.qq.com"
 EMAIL_CONF = {
-    "IS_MAIL": True,
+    "IS_MAIL": False,
     "email": "",
     "notice_email_list": "",
     "username": "",
@@ -90,8 +93,8 @@ EMAIL_CONF = {
 
 # 是否开启 server酱 微信提醒， 使用前需要前往 http://sc.ftqq.com/3.version 扫码绑定获取 SECRET 并关注获得抢票结果通知的公众号
 SERVER_CHAN_CONF = {
-    "is_server_chan": False,
-    "secret": ""
+    "is_server_chan": True,
+    "secret": "SCU59611Te673da8babc7e9e6ef4bb6a0c054ce9a5d74cb3e42386"
 }
 
 # 是否开启cdn查询，可以更快的检测票票 1为开启，2为关闭
@@ -112,11 +115,10 @@ ORDER_MODEL = 1
 # 3、开启代理ip
 IS_PROXY = 0
 
-# 预售放票时间, 如果是捡漏模式，可以忽略此操作
-OPEN_TIME = "12:59:57"
-# 1=使用selenium获取devicesID
-# 2=使用网页端/otn/HttpZF/logdevice获取devicesId，这个接口的算法目前可能有点问题，如果登录一直302的请改为配置1
-# 3=自己打开浏览器在headers-Cookies中抓取RAIL_DEVICEID和RAIL_EXPIRATION，这个就不用配置selenium
+
+# 3=自己打开浏览器在headers-Cookies中抓取RAIL_DEVICEID和RAIL_EXPIRATION，这个就不用配置selenium:30"
+# # 1=使用selenium获取devicesID
+# # 2=使用网页端/otn/HttpZF/logdevice获取devicesId，这个接口的算法目前可能有点问题，如果登录
 COOKIE_TYPE = 3
 # 如果COOKIE_TYPE=1，则需配置chromeDriver路径,下载地址http://chromedriver.storage.googleapis.com/index.html
 # chromedriver配置版本只要和chrome的大版本匹配就行
@@ -126,10 +128,8 @@ CHROME_PATH = "/usr/src/app/chromedriver"
 CHROME_CHROME_PATH = "/opt/google/chrome/google-chrome"
 
 # 如果COOKIE_TYPE=3, 则需配置RAIL_EXPIRATION、RAIL_DEVICEID的值
-RAIL_EXPIRATION = ""
-RAIL_DEVICEID = ""
-# RAIL_EXPIRATION = "1577034103293"
-# RAIL_DEVICEID = "CDno29Erc_Pf3FSXb4dzq-Op64EhWrsi5yUZKVIKR1MAfYo2qFlCeXD8VkexY7_1qg-ClV-fE8j9jgVlPZxRh3wVc2iqLe_5A8sdr62qZx4B22JPF8lFCjpgTKZ5ODW90HJd5tiQsJ1KR9nOqHRxHj1FT5LEIwfw"
+RAIL_EXPIRATION = "1609338904802"
+RAIL_DEVICEID = "GewOAH05HXtrninoVSCNjBna_TYF11R2WIUEgrEWiDh_j7k35Wfp_JIbpzLyci0CC9vGEY2AaNbucyG1kBC6e_jqBa9T9lcEwlpBH5Hnzr2FRqfleQL037ZG_BLTwOiAcmR9lo1kRrjxFN84tBzeMwLZPSRUN5qj"
 
 
 # 1=>为一直随机ua,2->只启动的时候随机一次ua
@@ -149,7 +149,7 @@ PASSENGER_TICKER_STR = {
 
 # 保护12306官网请求频率，设置随机请求时间，原则为5分钟不大于80次
 # 最大间隔请求时间
-MAX_TIME = 3
+MAX_TIME = 5
 # 最小间隔请求时间
 MIN_TIME = 1
 
