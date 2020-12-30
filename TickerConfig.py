@@ -45,13 +45,13 @@ IS_MORE_TICKET = True
 # 乘车人(list) 多个乘车人ex:
 # "张三",
 # "李四"
-TICKET_PEOPLES = ["刘海平"]
+TICKET_PEOPLES = [""]
 
 # 12306登录账号
-# USER = "WANGXUJIE324"
-# PWD = "wxj19920324"
-USER = "lhpmain"
-PWD = "s123321"
+# USER = ""
+# PWD = ""
+USER = ""
+PWD = ""
 # tk = ""
 
 # 加入小黑屋时间默认为5分钟，此功能为了防止僵尸票导致一直下单不成功错过正常的票
@@ -65,7 +65,7 @@ IS_AUTO_CODE = True
 AUTO_CODE_TYPE = 3
 
 # 此处设置云打码服务器地址，如果有自建的服务器，可以自行更改
-HOST = "142.47.91.170:8088"
+HOST = "142.:8080"
 REQ_URL = "/verify/base64/"
 HTTP_TYPE = "http"
 
@@ -94,7 +94,7 @@ EMAIL_CONF = {
 # 是否开启 server酱 微信提醒， 使用前需要前往 http://sc.ftqq.com/3.version 扫码绑定获取 SECRET 并关注获得抢票结果通知的公众号
 SERVER_CHAN_CONF = {
     "is_server_chan": True,
-    "secret": "SCU59611Te673da8babc7e9e6ef4bb6a0c054ce9a5d74cb3e42386"
+    "secret": ""
 }
 
 # 是否开启cdn查询，可以更快的检测票票 1为开启，2为关闭
@@ -152,6 +152,5 @@ PASSENGER_TICKER_STR = {
 MAX_TIME = 5
 # 最小间隔请求时间
 MIN_TIME = 1
-
 # 软件版本
 RE_VERSION = "1.2.004"
